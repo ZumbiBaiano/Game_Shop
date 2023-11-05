@@ -24,7 +24,7 @@ public class clientesDAO {
 	public void save(Clientes clientes) {
 		
 		
-		String sql = "INSERT INTO clientes(nome, idade, dataCadastro,) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO clientes(id_cliente, nome_cliente, cpf ,email , endereco) VALUES (?, ?, ?, ? , ?)";
 	
 		Connection conn = null;
 		PreparedStatement pstm = null;
@@ -36,9 +36,11 @@ public class clientesDAO {
 			//Criames uma PreparedStatement, para executar uma query
 			pstm = (PreparedStatement) conn.prepareStatement(sql);
 			//Adicionar os valores que são esperados pela query
-			pstm.setString(1, clientes.getNome());
-			pstm.setString(2, clientes.getCpf());
-			pstm.setString(3,(clientes.getEmail()));
+			pstm.setString(1, clientes.getId_cliente());
+			pstm.setString(1, clientes.getNome_cliente());
+			pstm.setString(1, clientes.getCpf());
+			pstm.setString(2, clientes.getEmail());
+			pstm.setString(3,(clientes.getEndereco()));
 			
 			//Executar a query
 			pstm.execute();
@@ -65,7 +67,7 @@ public class clientesDAO {
 	
 	public void update(Clientes clientes) {
 		
-		String sql = "UPDATE cliente SET nome = ?, idade = ?, dataCadastro = ?"
+		String sql = "UPDATE cliente SET nome_cliente = ?, idade = ?, dataCadastro = ?"
 		+"WHERE id = ?";
 		
 		Connection conn = null;
@@ -79,12 +81,12 @@ public class clientesDAO {
 			pstm = (PreparedStatement) conn.prepareStatement(sql);
 			
 			//Adiciona valores para atualizar
-			pstm.setString(1, clientes.getNome());
+			pstm.setString(1, clientes.getNome_cliente());
 			pstm.setString(2, clientes.getCpf());
 			pstm.setString(3, clientes.getEmail());
 			
 			//Qual o ID do registro que deseja atualizar
-			pstm.setString(4, clientes.getId());
+			pstm.setString(4, clientes.getId_cliente());
 			
 			//Executando a query
 			pstm.execute();
@@ -158,7 +160,7 @@ public class clientesDAO {
             	clientes2.setCpf(rset.getString("id"));
                 
                 //Recupera o nome
-            	clientes2.setNome(rset.getString("nome"));
+            	clientes2.setNome_cliente(rset.getString("nome"));
                 
               //Recupera o Cpf
             	clientes2.setCpf(rset.getString("Cpf"));
