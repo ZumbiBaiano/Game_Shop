@@ -24,7 +24,7 @@ public class clientesDAO {
 	public void save(Clientes clientes) {
 		
 		
-		String sql = "INSERT INTO clientes(nome, idade, dataCadastro) VALUES (?, ?, ?)";
+		String sql = "INSERT INTO clientes(nome, idade, dataCadastro,) VALUES (?, ?, ?)";
 	
 		Connection conn = null;
 		PreparedStatement pstm = null;

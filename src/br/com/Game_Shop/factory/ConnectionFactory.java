@@ -8,7 +8,7 @@ public class ConnectionFactory {
 	//Nome do Usuário do MySQL
 	private static final String USERNAME = "root";
 	
-	
+	 
 	//Senha do banco
 	private static final String PASSWORD = "123456";
 	
